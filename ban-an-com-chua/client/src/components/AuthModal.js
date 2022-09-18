@@ -13,7 +13,7 @@ const AuthModal = ({setShowModal, modalType, setModalType}) => {
   const handleAuthFormSubmit = (event) => {
     event.preventDefault();
     try{
-      if(modalType == 0 && !(password === confirmPassword)) {
+      if(modalType === 0 && !(password === confirmPassword)) {
         setErrorMessage("Password need to match");
         return;
       }
@@ -28,7 +28,7 @@ const AuthModal = ({setShowModal, modalType, setModalType}) => {
       <div  className={"close-icon-container"}>
         <span onClick={handleXclick} className="close-icon">X</span>
       </div>
-      <h2>{modalType==0 ? "CREATE ACCOUNT" : "LOG IN"}</h2>
+      <h2>{modalType===0 ? "CREATE ACCOUNT" : "LOG IN"}</h2>
       <form onSubmit={handleAuthFormSubmit}>
         <div className="input-group">
           <label>Your Email</label>
@@ -54,7 +54,7 @@ const AuthModal = ({setShowModal, modalType, setModalType}) => {
           />
         </div>
         {
-          modalType == 0 &&
+          modalType === 0 &&
           <div className="input-group">
             <label>Repeat Password</label>
             <input 
